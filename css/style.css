@@ -1,0 +1,558 @@
+/* --- Base Styles & Sabri Variables --- */
+:root {
+    --color-orange: #D9531E; /* Primary Orange/Red from screenshot */
+    --color-light-grey: #F0F0F0; /* Light grey for textured background */
+    --color-white: #ffffff;
+    --color-dark-text: #333333; /* Dark text for light backgrounds */
+    --color-dark-footer: #1a1a1a; /* Example dark footer */
+    --color-highlight: #FFD700; /* Yellow highlight */
+    --color-secondary-text: #555555; /* Slightly lighter dark text */
+    --grid-line-color: rgba(0, 0, 0, 0.04); /* Very subtle dark lines for grid */
+    --grid-size: 20px; /* Size of the grid squares */
+
+    /* Fonts - Using Google Fonts linked in HTML */
+    --font-heading-sabri: 'Oswald', sans-serif; /* Bold, condensed-like */
+    --font-body-sabri: 'Roboto', sans-serif; /* Clean sans-serif */
+
+    --container-width: 1140px;
+    --spacing-unit: 1rem; /* Approx 16px */
+} /* Removed extra brace here */
+
+/* --- Global Reset --- */
+* { /* Corrected missing brace before this */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* --- Base HTML & Body --- */
+html {
+    scroll-behavior: smooth; /* Add smooth scrolling */
+}
+
+body {
+    font-family: var(--font-body-sabri);
+    line-height: 1.7; /* Slightly more line height */
+    color: var(--color-dark-text);
+    background-color: var(--color-light-grey); /* Default background */
+    -webkit-font-smoothing: antialiased; /* Improve font rendering */
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- Typography --- */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading-sabri);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: calc(var(--spacing-unit) * 1);
+}
+
+p {
+    margin-bottom: calc(var(--spacing-unit) * 1.25); /* Slightly more space */
+}
+
+a {
+    color: var(--color-orange);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+a:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+/* --- Layout Containers --- */
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 calc(var(--spacing-unit) * 1.5);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-container {
+    max-width: 800px; /* Limit width for readability */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Section Styling --- */
+section {
+    padding: calc(var(--spacing-unit) * 4) 0;
+    overflow: hidden; /* Prevent horizontal scroll from shadows/transforms */
+}
+
+.section-orange {
+    background-color: var(--color-orange);
+    color: var(--color-white);
+}
+.section-orange h1, .section-orange h2, .section-orange h3 {
+    color: var(--color-white);
+}
+.section-orange p, .section-orange li {
+     color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+}
+.section-orange a {
+    color: var(--color-white);
+    font-weight: bold;
+}
+.section-orange a:hover {
+    color: var(--color-light-grey);
+}
+
+
+.section-light-textured {
+    background-color: var(--color-light-grey);
+    color: var(--color-dark-text);
+    /* --- CSS Grid Pattern --- */
+    background-image:
+        linear-gradient(to right, var(--grid-line-color) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--grid-line-color) 1px, transparent 1px);
+    background-size: var(--grid-size) var(--grid-size);
+    /* --- End CSS Grid Pattern --- */
+}
+.section-light-textured h1, .section-light-textured h2, .section-light-textured h3 {
+    color: var(--color-dark-text);
+}
+.section-light-textured a {
+    color: var(--color-orange);
+    font-weight: bold;
+}
+.section-light-textured a:hover {
+     /* Replaced darken() with a static color */
+     color: #C84A1A; /* Example darker orange */
+}
+
+.lead-dark { /* Lead paragraph on light background */
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--color-secondary-text);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* --- Sabri Specific Typography & Elements --- */
+/* These class names should be updated for your personal site */
+.eyebrow-sabri {
+    display: block;
+    font-family: var(--font-body-sabri); /* Use body font for eyebrow */
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: calc(var(--spacing-unit) * 1.5);
+    color: rgba(255, 255, 255, 0.8); /* Slightly dimmer white */
+    text-align: center;
+}
+
+.headline-sabri {
+    font-family: var(--font-heading-sabri);
+    font-size: 3.5rem; /* Adjust size */
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-white);
+    line-height: 1.1;
+    letter-spacing: -1px; /* Tighten spacing */
+    text-align: center;
+    margin-bottom: calc(var(--spacing-unit) * 1.5);
+    /* Optional subtle text shadow like Sabri's */
+    /* text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); */
+}
+
+.subheadline-sabri {
+    font-family: var(--font-body-sabri);
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--color-white);
+    text-align: center;
+    max-width: 850px;
+    margin: 0 auto calc(var(--spacing-unit) * 2.5) auto;
+    line-height: 1.5;
+}
+
+.section-heading-sabri { /* For headings on orange sections */
+    font-family: var(--font-heading-sabri);
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: calc(var(--spacing-unit) * 3);
+    color: var(--color-white);
+}
+
+.section-heading-sabri-dark { /* For headings on light sections */
+    font-family: var(--font-heading-sabri);
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: calc(var(--spacing-unit) * 3);
+    color: var(--color-dark-text);
+}
+
+.intrigue-headline { /* Specific style for intrigue headline */
+     font-family: var(--font-heading-sabri);
+     font-size: 1.8rem;
+     text-transform: uppercase;
+     text-align: center;
+     margin-bottom: calc(var(--spacing-unit) * 1.5);
+     color: var(--color-dark-text);
+}
+
+.highlight {
+    background-color: var(--color-highlight);
+    color: var(--color-dark-text); /* Dark text on yellow */
+    padding: 0.1em 0.4em;
+    font-weight: 700;
+    border-radius: 3px; /* Slight rounding */
+    /* Added display inline-block and margin fix potential line break issues */
+    display: inline-block;
+    margin: -0.1em -0.4em; /* Adjust negative margin to match padding */
+    padding: 0.1em 0.4em;
+    box-decoration-break: clone; /* Ensure background covers full highlight across lines */
+    -webkit-box-decoration-break: clone;
+}
+
+/* --- Buttons (Sabri Style) --- */
+.btn {
+    display: inline-block;
+    /* Corrected calc() */
+    padding: calc(var(--spacing-unit) * 0.9) calc(var(--spacing-unit) * 2);
+    font-family: var(--font-heading-sabri); /* Use heading font for buttons */
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none; /* Sabri's buttons often look borderless */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    /* Corrected calc() */
+    margin: calc(var(--spacing-unit) * 0.5) calc(var(--spacing-unit) * 0.25);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    text-decoration: none;
+    opacity: 1; /* Override general link hover */
+}
+
+.btn-primary-sabri { /* Main action button - Use a contrasting color */
+    background-color: var(--color-dark-text); /* Example: Dark button on light bg */
+    color: var(--color-white);
+}
+.btn-primary-sabri:hover {
+    /* Replaced lighten() with static color */
+    background-color: #4d4d4d; /* Example lighter dark */
+    color: var(--color-white);
+}
+
+.btn-secondary-sabri { /* Secondary action button */
+    background-color: var(--color-secondary-text); /* Example: Grey button */
+    color: var(--color-white);
+}
+.btn-secondary-sabri:hover {
+     /* Replaced lighten() with static color */
+    background-color: #6b6b6b; /* Example lighter grey */
+    color: var(--color-white);
+}
+
+.btn-light { /* Button for dark backgrounds */
+    background-color: var(--color-white);
+    color: var(--color-orange); /* Text color matches dark bg */
+}
+.btn-light:hover {
+    background-color: var(--color-light-grey);
+    color: var(--color-orange);
+}
+
+
+.btn-large {
+    /* Corrected calc() */
+    padding: calc(var(--spacing-unit) * 1.1) calc(var(--spacing-unit) * 2.5);
+    font-size: 1.25rem;
+}
+
+
+/* --- Solution Components (Sabri Style) --- */
+.solution-components-sabri {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: calc(var(--spacing-unit) * 2.5);
+    margin-top: calc(var(--spacing-unit) * 1);
+    text-align: center;
+}
+.solution-components-sabri .icon {
+    max-height: 50px;
+    margin: 0 auto calc(var(--spacing-unit)*0.75) auto;
+    opacity: 0.9;
+}
+.solution-components-sabri h3 {
+    font-size: 1.4rem;
+    margin-bottom: calc(var(--spacing-unit) * 0.5);
+    text-transform: uppercase;
+}
+.solution-components-sabri p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* --- Benefits List (Sabri Style) --- */
+.benefits-list-sabri {
+    list-style: none;
+    padding-left: 0;
+    margin: calc(var(--spacing-unit) * 1) auto 0 auto;
+    max-width: 800px; /* Center the list */
+}
+.benefits-list-sabri li {
+    padding: calc(var(--spacing-unit) * 0.75) 0 calc(var(--spacing-unit) * 0.75) calc(var(--spacing-unit) * 2.5);
+    font-size: 1.15rem;
+    font-weight: 700; /* Bolder benefits */
+    position: relative;
+    color: var(--color-white);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Separator */
+}
+.benefits-list-sabri li:last-child {
+    border-bottom: none;
+}
+.benefits-list-sabri li::before {
+    content: '✓'; /* Checkmark */
+    color: var(--color-white); /* White checkmark */
+    font-size: 1.5rem;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* --- Testimonials (Sabri Style) --- */
+.testimonials-sabri {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: calc(var(--spacing-unit) * 3);
+    margin-top: calc(var(--spacing-unit) * 1);
+}
+.testimonial-item-sabri {
+    text-align: center;
+}
+.testimonial-img-sabri {
+    width: 120px; /* Adjust size */
+    height: 120px;
+    border-radius: 50%; /* Circular images */
+    margin: 0 auto calc(var(--spacing-unit) * 1) auto;
+    border: 4px solid var(--color-white); /* Optional border */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    object-fit: cover; /* Ensure image covers the circle */
+}
+.testimonial-quote-sabri {
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--color-secondary-text);
+    margin-bottom: calc(var(--spacing-unit) * 1);
+}
+.testimonial-name-sabri {
+    font-family: var(--font-heading-sabri);
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    color: var(--color-dark-text);
+    margin-bottom: 0;
+}
+.testimonial-title-sabri {
+    font-size: 0.9rem;
+    color: var(--color-secondary-text);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* --- Offer Section (Sabri Style) --- */
+.offer-section-sabri .offer-content-sabri {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr; /* Adjust ratio text vs image */
+    gap: calc(var(--spacing-unit) * 4);
+    align-items: center;
+}
+.offer-section-sabri ul {
+    list-style: disc;
+    padding-left: calc(var(--spacing-unit) * 1.5);
+    margin: var(--spacing-unit) 0;
+}
+.offer-section-sabri ul li {
+    margin-bottom: calc(var(--spacing-unit) * 0.5);
+    color: rgba(255, 255, 255, 0.9);
+}
+.offer-section-sabri .value-stack {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-top: calc(var(--spacing-unit) * 1.5);
+    color: var(--color-white);
+}
+.offer-visual img {
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* --- Pricing Section (Sabri Style) --- */
+.price-sabri {
+    margin: calc(var(--spacing-unit) * 1.5) 0;
+}
+.price-sabri .strike-through-sabri {
+    text-decoration: line-through;
+    color: var(--color-secondary-text);
+    font-size: 1.3rem;
+    display: block;
+    margin-bottom: calc(var(--spacing-unit) * 0.25);
+}
+.price-sabri strong {
+    font-family: var(--font-heading-sabri);
+    font-size: 3rem;
+    color: var(--color-orange); /* Price in accent color */
+    display: block;
+    font-weight: 700;
+}
+.scarcity-sabri {
+    color: #b30000; /* Darker red for scarcity */
+    font-weight: bold;
+    margin: var(--spacing-unit) auto calc(var(--spacing-unit) * 2) auto;
+    max-width: 600px;
+    font-size: 1.1rem;
+}
+
+/* --- Guarantee Section (Sabri Style) --- */
+.guarantee-badge-sabri {
+    max-height: 120px;
+    margin: calc(var(--spacing-unit) * 1) auto calc(var(--spacing-unit) * 1.5) auto;
+}
+#guarantee p {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* --- CTA Section (Sabri Style) --- */
+.section-cta-sabri {
+     padding: calc(var(--spacing-unit) * 5) 0; /* More padding for final CTA */
+}
+.cta-buttons-sabri .btn {
+    /* Corrected calc() */
+    margin: calc(var(--spacing-unit) * 0.75);
+}
+
+/* --- Footer (Sabri Style - Dark Example) --- */
+.footer-sabri {
+    background-color: var(--color-dark-footer);
+    color: rgba(255, 255, 255, 0.7);
+    padding: calc(var(--spacing-unit) * 3) 0 calc(var(--spacing-unit) * 1.5) 0;
+    font-size: 0.95rem;
+}
+.footer-ps-sabri p {
+    margin-bottom: calc(var(--spacing-unit) * 1);
+    line-height: 1.6;
+}
+.footer-ps-sabri strong {
+    color: var(--color-white);
+}
+.footer-ps-sabri a {
+    color: var(--color-orange); /* Accent color for links */
+    font-weight: bold;
+}
+.footer-ps-sabri a:hover {
+    /* Replaced lighten() with static color */
+    color: #E76F51; /* Example lighter orange */
+}
+.footer-bottom-sabri {
+    margin-top: calc(var(--spacing-unit) * 2.5);
+    padding-top: calc(var(--spacing-unit) * 1.5);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+.footer-links-sabri {
+    margin-top: calc(var(--spacing-unit) * 0.5); /* Add some space when wrapped */
+}
+.footer-links-sabri a {
+    color: rgba(255, 255, 255, 0.5);
+    margin-left: var(--spacing-unit);
+    text-decoration: none;
+}
+.footer-links-sabri a:hover {
+    color: var(--color-white);
+    text-decoration: underline;
+}
+.copyright-sabri {
+     margin-top: calc(var(--spacing-unit) * 0.5); /* Add some space when wrapped */
+}
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 992px) {
+    :root { --container-width: 960px; }
+    .headline-sabri { font-size: 3rem; }
+    .offer-section-sabri .offer-content-sabri { grid-template-columns: 1fr; text-align: center; }
+    .offer-visual { margin: calc(var(--spacing-unit) * 2) auto 0 auto; } /* Center image */
+    .offer-section-sabri ul { display: inline-block; text-align: left; } /* Center list items */
+}
+
+@media (max-width: 768px) {
+    :root { --container-width: 720px; }
+    .headline-sabri { font-size: 2.5rem; }
+    .subheadline-sabri { font-size: 1.15rem; }
+    .section-heading-sabri, .section-heading-sabri-dark { font-size: 2rem; }
+    .testimonials-sabri { grid-template-columns: 1fr; } /* Stack testimonials */
+    .footer-bottom-sabri { flex-direction: column; text-align: center; }
+    .footer-links-sabri { margin-top: var(--spacing-unit); }
+    .footer-links-sabri a { margin: 0 calc(var(--spacing-unit) * 0.5); display: inline-block; margin-bottom: calc(var(--spacing-unit)*0.5); }
+}
+
+@media (max-width: 576px) {
+    :root { --container-width: 100%; } /* Full width on small screens */
+    body { font-size: 15px; } /* Adjust base font size */
+    section { padding: calc(var(--spacing-unit) * 3) 0; } /* Reduce section padding */
+    .container { padding: 0 calc(var(--spacing-unit) * 1); } /* Reduce container padding */
+    .headline-sabri { font-size: 2rem; letter-spacing: -0.5px; }
+    .subheadline-sabri { font-size: 1.05rem; }
+    .section-heading-sabri, .section-heading-sabri-dark { font-size: 1.8rem; }
+    /* Corrected calc() */
+    .btn { width: 90%; margin: calc(var(--spacing-unit) * 0.75) 5%; } /* Near full width buttons, more margin */
+    .cta-buttons-sabri .btn { width: 90%; }
+    .offer-section-sabri .offer-content-sabri { gap: calc(var(--spacing-unit) * 2); }
+    .price-sabri strong { font-size: 2.5rem; }
+    .footer-bottom-sabri { font-size: 0.8rem; }
+    .footer-links-sabri a { margin-left: calc(var(--spacing-unit)*0.75); }
+}
+
+/* Modify .btn-light for a different look on orange bg */
+.btn-light {
+    background-color: #C84A1A; /* Darker shade of your orange */
+    color: var(--color-white);
+    /* Add a subtle border maybe */
+    /* border: 1px solid rgba(255, 255, 255, 0.5); */
+}
+.btn-light:hover {
+    background-color: #d3511e; /* Even darker on hover */
+    color: var(--color-white);
+}
